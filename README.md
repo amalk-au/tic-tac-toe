@@ -91,9 +91,21 @@ The project focuses on organising JavaScript code into maintainable components w
 
 ### Game Dashboard
 
+<p align="center"> <img src="./docs/screenshots/game-start.png" alt="Tic Tac Toe game dashboard" width="800"> </p>
+
 ### Active Game
 
+<p align="center"> <img src="./docs/screenshots/game-play.png" alt="Tic Tac Toe active gameplay" width="800"> </p>
+
 ### Game Result
+
+<p align="center"> <img src="./docs/screenshots/game-over.png" alt="Tic Tac Toe completed game result" width="800"> </p>
+
+### Technical Information
+
+<p align="center"> <img src="./docs/screenshots/tech-info-1.png" alt="Tic Tac Toe technical information - overview" width="800"> </p>
+
+<p align="center"> <img src="./docs/screenshots/tech-info-2.png" alt="Tic Tac Toe technical information - additional details" width="800"> </p>
 
 ## Live Demo : [Tic Tac Toe – Live Demo](https://amalk.au/tic-tac-toe/)
 
