@@ -1,229 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe Game</title>
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
     <div class="container">
-        <div>
-            <h1>Tic Tac Toe Game with Ai opponent</h1>
-            <p>This is a traditional Tic Tac Toe game. You can play this game with a simple Ai opponent</p>
-            <p>This game is created to solidify my knowledge in JavaScript concepts of Objects, Factory Functions, Closures, Private functions, IIFE (Immediately Invoked Function Expressions), HTML, CSS, User interface design, etc..</p>
-            <h2>Please insert your name and click start to play the game</h2>
+      <div>
+        <h1>Tic Tac Toe Game with Ai opponent</h1>
+        <p>
+          This is a traditional Tic Tac Toe game. You can play this game with a
+          simple Ai opponent
+        </p>
+        <p>
+          This game is created to solidify my knowledge in JavaScript concepts
+          of Objects, Factory Functions, Closures, Private functions, IIFE
+          (Immediately Invoked Function Expressions), HTML, CSS, User interface
+          design, etc..
+        </p>
+        <h2>Please insert your name and click start to play the game</h2>
+      </div>
+
+      <div class="gameContainer">
+        <div class="gameDashboard">
+          <div class="gameControl">
+            <form>
+              <p>
+                <label for="playerName">Player Name</label>
+                <input
+                  id="playerName"
+                  type="text"
+                  name="playerName"
+                  placeholder="Please Enter Player Name"
+                  required
+                  minlength="1"
+                  maxlength="4"
+                />
+                <button id="startGame" type="button">Start New Game</button>
+              </p>
+            </form>
+          </div>
+
+          <div class="gameStatus">
+            <h2>Game Status: <span id="gameStatus"></span></h2>
+            <h2>Winner Is: <span id="finalResult"></span></h2>
+            <h2>
+              Winning Conditions audit: <span id="winningConditions"></span>
+            </h2>
+            <h2>Last Turn by:<span id="turnNo"></span></h2>
+          </div>
         </div>
 
-                <div class="gameContainer">
-                    <div class="gameDashboard">
-                        <div class="gameControl">
-                            <form>
-                            <p>
-                                <label for="playerName">Player Name</label>
-                                <input id="playerName" type="text" name="playerName" placeholder="Please Enter Player Name" required minlength="1" maxlength="4">
-                                <button id="startGame" type="button">Start New Game</button>
-                            </p>
-                            </form>
-                            
-                            
-                        </div>
+        <div class="gameBoardContainer">
+          <div class="buttonRow1">
+            <button class="gameInputButtons" id="grid-0" type="button">
+              0
+            </button>
+            <button class="gameInputButtons" id="grid-1" type="button">
+              1
+            </button>
+            <button class="gameInputButtons" id="grid-2" type="button">
+              2
+            </button>
+          </div>
 
-                        <div class="gameStatus">
-                        <h2>Game Status: <span id="gameStatus"></span></h2>
-                        <h2>Winner Is: <span id="finalResult"></span> </h2>
-                        <h2>Winning Conditions audit: <span id="winningConditions"></span></h2>
-                        <h2>Last Turn by:<span id="turnNo"></span> </h2>
-                        
+          <div class="buttonRow2">
+            <button class="gameInputButtons" id="grid-3" type="button">
+              3
+            </button>
+            <button class="gameInputButtons" id="grid-4" type="button">
+              4
+            </button>
+            <button class="gameInputButtons" id="grid-5" type="button">
+              5
+            </button>
+          </div>
 
-                        
-                        </div>
+          <div class="buttonRow3">
+            <button class="gameInputButtons" id="grid-6" type="button">
+              6
+            </button>
+            <button class="gameInputButtons" id="grid-7" type="button">
+              7
+            </button>
+            <button class="gameInputButtons" id="grid-8" type="button">
+              8
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <h1>Technical info for Software Engineers</h1>
+        <p>Tech Stack: JavaScript, HTML and CSS</p>
+        <a href="https://github.com/1Amal/JavaScript-TicTacToe"
+          >Source Code available on GitHub or you can inspect the code using
+          Firefox or Chrome Developer tools by right clicking this page and
+          selecting "inspect"</a
+        >
+        <p>Architecture design and coding by Amal Kariyawasam, 2024 March</p>
 
-                    </div>
+        <h2>Tic Tac Toe Game Architecture</h2>
+        <h3>Game Logic</h3>
+        <ul>
+          <li>One Human Player and One AIBot</li>
+          <li>
+            3 x 3 Grid with clickable buttons that are numbered
+            0,1,2,3,4,5,6,7,8
+          </li>
+          <li>
+            Players, play turn by turn and game will be over after maximum of 9
+            turns either in a draw or in a win
+          </li>
+          <li>
+            First player to get 3 of the same mark on a straight line will be
+            the winner before the 9 turn are up according to the following
+            conditions;
+          </li>
+        </ul>
 
-                    <div class="gameBoardContainer">
-                        <div class="buttonRow1"> 
-                            <button class=gameInputButtons id="grid-0" type="button">0</button>
-                            <button class=gameInputButtons id="grid-1" type="button">1</button>
-                            <button class=gameInputButtons id="grid-2" type="button">2</button>
-                        </div>
+        <h4>Tic Tac Toe Board Coordinates;</h4>
 
-                        <div class="buttonRow2"> 
-                            <button class=gameInputButtons id="grid-3" type="button">3</button>
-                            <button class=gameInputButtons id="grid-4" type="button">4</button>
-                            <button class=gameInputButtons id="grid-5" type="button">5</button>
-                        </div>
+        <table class="boardInfo">
+          <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
 
-                        <div class="buttonRow3"> 
-                            <button class=gameInputButtons id="grid-6" type="button">6</button>
-                            <button class=gameInputButtons id="grid-7" type="button">7</button>
-                            <button class=gameInputButtons id="grid-8" type="button">8</button>
-                        </div>
-                    </div>
-                </div>
+          <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+          </tr>
+        </table>
 
-        <div>
-            <h1>Technical info for Software Engineers</h1>
-            <p>Tech Stack: JavaScript, HTML and CSS </p>
-            <a href="https://github.com/1Amal/JavaScript-TicTacToe">Source Code available on GitHub or you can inspect the code using Firefox or Chrome Developer tools by right clicking this page and selecting "inspect"</a>
-            <p>Architecture design and coding by Amal Kariyawasam, 2024 March</p>
+        <h4>Conditions for wins</h4>
+        <p>Straight Line: All three Row wins:</p>
+        <ul>
+          <li>0,1,2 in any combination</li>
+          <li>3,4,5 in any combination</li>
+          <li>6,7,8 in any combination</li>
+        </ul>
 
-            <h2>Tic Tac Toe Game Architecture</h2>
-            <h3>Game Logic</h3>
+        <p>Straight Line: All three Column wins</p>
+        <ul>
+          <li>0,3,6 in any combination</li>
+          <li>1,4,7 in any combination</li>
+          <li>2,5,8 in any combination</li>
+        </ul>
+
+        <p>Straight Line: All three Diagonal wins</p>
+        <ul>
+          <li>0,4,8 in any combination</li>
+          <li>2,4,6 in any combination</li>
+        </ul>
+
+        <h4>Conditions for Tie/Draw</h4>
+        <p>
+          Anything that is not in the above win conditions will be a draw/Tie
+          after all 9 grid slots have been filled
+        </p>
+
+        <h3>Main Coding rules</h3>
+        <ul>
+          <li>
+            Use Object oriented design to create the game and no global
+            variables, store all the the variables inside factories. Main goal
+            here is to have as little global code as possible.
+          </li>
+          <li>
+            If only a single instance of something is required (e.g. the
+            gameboard, the displayController etc.) then wrap the factory inside
+            an IIFE (module pattern) so it cannot be reused to create additional
+            instances.
+          </li>
+          <li>
+            Decide on which Objects to store the relevant logic so code is
+            easily maintainable
+          </li>
+          <li>
+            First create a working game on the browser console. Test and after
+            making sure the game work start work on the User interface
+          </li>
+          <li>
+            Create a User interface which display game status, input player
+            choices, reset game, add player name, show player score
+          </li>
+        </ul>
+
+        <h3>User Interface design (HTML and CSS)</h3>
+        <ul>
+          <li>
+            Game board 3x3 Grid using buttons with HTML id's assigned to grid
+            numbers 0,1,2,3,4,5,6,7,8
+          </li>
+          <li>Text Box to Enter Player Name</li>
+          <li>Button to Submit Player Name and start a new game</li>
+        </ul>
+        <h3>Logic design (JavaScript)</h3>
+
+        <h4>Pseudo Code</h4>
+        <ol>
+          <li>
+            Game Loaded, check whether game has been run before and choose from
+            the following
+          </li>
+          <li>
+            If it is the first time;
             <ul>
-                <li>One Human Player and One AIBot</li>
-                <li>3 x 3 Grid with clickable buttons that are numbered 0,1,2,3,4,5,6,7,8 </li>
-                <li>Players, play turn by turn and game will be over after maximum of 9 turns either in a draw or in a win</li>
-                <li>First player to get 3 of the same mark on a straight line will be the winner before the 9 turn are up according to the following conditions;</li>
+              <li>Prompt for Player Name</li>
+              <li>
+                When Player clicks submit button store the player name and start
+                the game
+              </li>
             </ul>
+          </li>
 
+          <li>If Game has been played before;</li>
+          <li>Set following variables to zero: "gameBoard" array</li>
 
+          <li>
+            Check how many turn numbers have been made, Prompt the Player to
+            make selection on the grid and store the grid location on the
+            "gameBoard" array and player, update the turn number and update the
+            display
+          </li>
+          <li>
+            AiBot will make a calculation and store the grid location on the
+            "gameBoard" array, update the turn number and update the display
+          </li>
+          <li>
+            Keep checking If player or AiBot has fulfilled any of conditions for
+            wins. If winning rules are fulfilled, declare the name of the winner
+            if not keep playing until the end of the 9th turn
+          </li>
+        </ol>
 
-            <h4>Tic Tac Toe Board Coordinates;</h4>
+        <p>
+          Code will be broken up into three Objects as follows for code
+          readability and memory efficiency;
+        </p>
 
-                <table class="boardInfo">
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
+        <h4>
+          gameMemory: Used only as a memory to store the player positions,
+          player details, player statistics, etc..
+        </h4>
+        <ul>
+          <li>
+            Variables for Player: let playerName=""; let playerWins=0; let
+            playerTurns=[];
+          </li>
 
-                    <tr>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                    </tr>
-                </table>
+          <li>
+            Variables for AiBot const aiBotName="AiBot"; let aiBotWins=0; let
+            aiBotTurns=[];
+          </li>
 
-                <h4>Conditions for wins</h4>
-                <p>Straight Line: All three Row wins:
-                    <ul>
-                        <li>0,1,2 in any combination</li>
-                        <li>3,4,5 in any combination</li>
-                        <li>6,7,8 in any combination</li>
-                    </ul></p>
+          <li>Variables to store other data let roundNo=0;</li>
 
+          <li>
+            Object to track whether game board grid is empty or not
+            gameBoard:{1:"null",2:"null",3:"null",4:"null",5:"null",6:"null",7:"null",8:"null",9:"null"}
+          </li>
+          <li>
+            Assign a 3x3 grid based naming convention and store it in an
+            boardArray i.e. 0 1 2 3 4 5 6 7 8
+          </li>
+          <li>
+            Get the position player has selected and store the value in
+            "playerBoardPosition" of player1 and AiBot to see who won and
+            "gameBoard" so game can keep track of used and free grid slots
+          </li>
+        </ul>
 
-                <p>Straight Line: All three Column wins
-                    <ul>
-                        <li>0,3,6 in any combination</li>
-                        <li>1,4,7 in any combination</li>
-                        <li>2,5,8 in any combination</li>
-
-                    </ul>
-                </p>
-
-                <p>Straight Line: All three Diagonal wins
-                    <ul>
-                        <li>0,4,8 in any combination</li>
-                        <li>2,4,6 in any combination</li>
-                    </ul>
-
-                </p>
-
-                <h4>Conditions for Tie/Draw</h4>
-                <p>Anything that is not in the above win conditions will be a draw/Tie after all 9 grid slots have been filled</p>
-
-
-                <h3>Main Coding rules</h3>
-                    <ul>
-                        <li>Use Object oriented design to create the game and no global variables, store all the the variables inside factories. Main goal here is to have as little global code as possible.</li>
-                        <li>If only a single instance of something is required (e.g. the gameboard, the displayController etc.) then wrap the factory inside an IIFE (module pattern) so it cannot be reused to create additional instances.</li>
-                        <li>Decide on which Objects to store the relevant logic so code is easily maintainable</li>
-                        <li>First create a working game on the browser console. Test and after making sure the game work start work on the User interface</li>
-                        <li>Create a User interface which display game status, input player choices, reset game, add player name, show player score</li>
-
-                    </ul>
-
-                <h3>User Interface design (HTML and CSS)</h3>
-                    <ul>
-                        <li>Game board 3x3 Grid using buttons with HTML id's assigned to grid numbers 0,1,2,3,4,5,6,7,8</li>
-                        <li>Text Box to Enter Player Name</li>
-                        <li>Button to Submit Player Name and start a new game</li>
-                        
-                    </ul>
-                <h3>Logic design (JavaScript)</h3>
-               
-                <h4>Pseudo Code</h4>
-                <ol>
-                    <li>Game Loaded, check whether game has been run before and choose from the following </li>
-                    <li>If it is the first time; 
-                        <ul><li>Prompt for Player Name</li>
-                            <li>When Player clicks submit button store the player name and start the game</li>
-                        </ul>
-                    <li>If Game has been played before;
-                            <li>Set following variables to zero: "gameBoard" array </li>
-                        </ul>
-                    </li>
-                    </li>
-                   
-                    <li>Check how many turn numbers have been made, Prompt the Player to make selection on the grid and store the grid location on the "gameBoard" array and player, update the turn number and update the display</li>
-                    <li>AiBot will make a calculation and store the grid location on the "gameBoard" array, update the turn number and update the display </li>
-                    <li>Keep checking If player or AiBot has fulfilled any of conditions for wins. If winning rules are fulfilled, declare the name of the winner if not keep playing until the end of the 9th turn</li>
-                    
-                </ol>
-
-                <p>Code will be broken up into three Objects as follows for code readability and memory efficiency;</p> 
-                
-                <h4>gameMemory: Used only as a memory to store the player positions, player details, player statistics, etc..</h4>
-                    <ul>
-                        <li>Variables for Player:
-                            let playerName="";
-                            let playerWins=0;
-                            let playerTurns=[];
-                        </li>
-                        
-                    
-                        <li>Variables for AiBot
-                            const aiBotName="AiBot";
-                            let aiBotWins=0;
-                            let aiBotTurns=[];
-                        </li>
-
-                        <li>
-                            Variables to store other data
-                            let roundNo=0;
-                        </li>
-
-                        <li>Object to track whether game board grid is empty or not gameBoard:{1:"null",2:"null",3:"null",4:"null",5:"null",6:"null",7:"null",8:"null",9:"null"}</li>
-                        <li>Assign a 3x3 grid based naming convention and store it in an boardArray  i.e. 0 1 2 3 4 5 6 7 8 </li>
-                        <li>Get the position player has selected and store the value in "playerBoardPosition" of player1 and AiBot to see who won and "gameBoard" so game can keep track of used and free grid slots</li>
-
-                    </ul>
-                
-                <h4>gameLogic: Object to control Flow of the game and the logic(Check whether the game has been run before, Check winning condition by comparing values in gameBoardObject, Keep track of number of turns and after 9 turns Game will be Over,  decide who will take the next turn)</h4>
-                    <ul>
-                        <li>Start Game</li>
-                        <li>Check for Game win</li>
-                        <li>Check for Game Ties</li>
-                        <li>Keep track of player and computer Marker (i.e. O X)</li>
-                        
-
-                    </ul>
-                <h4>displayController: Only function is to check player inputs, then store to the gameMemory and update the display with data stored in the gameMemory to update the HTML DOM and to received user input</h4>
-                    <ul>
-                        
-                        <li> Listen for user clicks in the 9 grids and store them in the GameMemory</li>
-                        <li>Update the AiBot choices on the display</li>
-                        <li>Check and display the Game score</li>
-                        <li>Button to change Player name</li>
-                        <li>Button to Restart game</li>
-                    </ul>
-           
-
-        </div>
+        <h4>
+          gameLogic: Object to control Flow of the game and the logic(Check
+          whether the game has been run before, Check winning condition by
+          comparing values in gameBoardObject, Keep track of number of turns and
+          after 9 turns Game will be Over, decide who will take the next turn)
+        </h4>
+        <ul>
+          <li>Start Game</li>
+          <li>Check for Game win</li>
+          <li>Check for Game Ties</li>
+          <li>Keep track of player and computer Marker (i.e. O X)</li>
+        </ul>
+        <h4>
+          displayController: Only function is to check player inputs, then store
+          to the gameMemory and update the display with data stored in the
+          gameMemory to update the HTML DOM and to received user input
+        </h4>
+        <ul>
+          <li>
+            Listen for user clicks in the 9 grids and store them in the
+            GameMemory
+          </li>
+          <li>Update the AiBot choices on the display</li>
+          <li>Check and display the Game score</li>
+          <li>Button to change Player name</li>
+          <li>Button to Restart game</li>
+        </ul>
+      </div>
     </div>
 
-
-
-
-<script src="./js/main.js"></script>
-</body>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
